@@ -11,6 +11,7 @@ export default function CalculatorContainer({
   mortgageType,
   handleMortgageType,
   onClickClear,
+  onClick,
 }) {
   return (
     <>
@@ -20,7 +21,7 @@ export default function CalculatorContainer({
           Clear All
         </span>
       </div>
-      <form>
+      <form onSubmit={onClick}>
         <FormInput
           iconFirst={true}
           icon="$"
@@ -61,7 +62,7 @@ export default function CalculatorContainer({
               value="repayment"
               checked={mortgageType === "repayment"}
               onChange={handleMortgageType}
-            />{" "}
+            />
             <label>Repayment</label>
           </div>
           <div className="type">
@@ -71,11 +72,11 @@ export default function CalculatorContainer({
               value="interestOnly"
               checked={mortgageType === "interestOnly"}
               onChange={handleMortgageType}
-            />{" "}
+            />
             <label>Interest Only</label>
           </div>
         </div>
-        <Button>Calculate Repayment</Button>
+        <Button type="submit">Calculate Repayment</Button>
       </form>
     </>
   );
